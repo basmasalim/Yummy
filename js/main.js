@@ -123,6 +123,7 @@ btnIngredients.addEventListener("click", function(){
   document.getElementById('Filter').classList.replace("d-block", "d-none");
   document.getElementById('details').classList.replace("d-block", "d-none");
   document.getElementById('AreaFilter').classList.replace("d-block", "d-none");
+  document.getElementById('openMeals').classList.replace("d-block", "d-none");
 
 
   $('.menuIcon').toggleClass('fa-bars fa-xmark');
