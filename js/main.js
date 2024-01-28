@@ -18,20 +18,29 @@ $(".menuIcon").on("click", function () {
   $("#inner-box").animate({ width: "toggle" }, 500);
 
   if ($(".menuIcon").hasClass("fa-bars")) {
-    $(".links ul ").addClass("animate__animated animate__fadeOutDown");
-    $(".links ul li").each(function (index) {
-      $(this)
-        .removeClass("animate__fadeInUp")
-        .css("animation-delay", index * 200 + "ms");
-    });
+
+    $(".links li").animate(
+      {
+        top: 300,
+      },
+      400
+    );
+
+
+
+
   } else {
-    $(".links ul ").removeClass("animate__fadeOutDown");
-    $(".links ul li").each(function (index) {
-      $(this)
-        .addClass("animate__animated animate__fadeInUp")
-        .css("animation-delay", index * 200 + "ms");
-    });
+
+
+
+    for (let i = 0; i < 5; i++) {
+      $(".links li ").eq(i).animate({
+          top: 0
+      }, (i + 5) * 100)
   }
+  }
+
+
 });
 
 btnSerch.addEventListener("click", function () {

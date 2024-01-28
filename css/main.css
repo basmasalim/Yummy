@@ -50,23 +50,24 @@ nav{
   height: inherit;
 }
 nav #inner-box {
-  /* left: -250px; */
   display: none;
   padding-inline: 10px;
+  overflow: hidden;
 }
 nav .links{
   line-height: 2.2rem;
   transition: opacity 0.5s ease;
+  overflow: hidden;
 }
 nav .nav-header{
-  width: 70px !important;
+  width: 70px;
 }
 main{
   background-color: var(--dark-color);
   padding-top: 50px;
 }
-nav i {
-  cursor: pointer;
+nav ul li{
+  position: relative;
 }
 figcaption.caption{
   height: 100%;
@@ -89,10 +90,7 @@ figure:hover figcaption.caption{
 section{
   min-height: 93.5vh;
 }
-/* .col-md-3 ,.col-12, .col-lg-6{
-  cursor: pointer;
-} */
-.area, .ingredients{
+.area, .ingredients, nav i{
   cursor: pointer;
 }
 main #search input::placeholder {
