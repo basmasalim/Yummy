@@ -18,29 +18,20 @@ $(".menuIcon").on("click", function () {
   $("#inner-box").animate({ width: "toggle" }, 500);
 
   if ($(".menuIcon").hasClass("fa-bars")) {
-
-    $(".links li").animate(
-      {
-        top: 300,
-      },
-      400
-    );
-
-
-
-
+    $(".links ul ").addClass("animate__animated animate__fadeOutDownBig");
+    $(".links ul li").each(function (index) {
+      $(this)
+        .removeClass("animate__fadeInUpBig")
+        .css("animation-delay", index * 10 + "ms");
+    });
   } else {
-
-
-
-    for (let i = 0; i < 5; i++) {
-      $(".links li ").eq(i).animate({
-          top: 0
-      }, (i + 5) * 100)
+    $(".links ul ").removeClass("animate__fadeOutDownBig");
+    $(".links ul li").each(function (index) {
+      $(this)
+        .addClass("animate__animated animate__fadeInUpBig")
+        .css("animation-delay", index * 50 + "ms");
+    });
   }
-  }
-
-
 });
 
 btnSerch.addEventListener("click", function () {
@@ -58,6 +49,7 @@ btnSerch.addEventListener("click", function () {
   clearData();
   $(".menuIcon").toggleClass("fa-bars fa-xmark");
   $("#inner-box").animate({ width: "toggle" }, 500);
+
   console.log("search");
 });
 

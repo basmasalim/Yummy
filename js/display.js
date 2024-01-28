@@ -280,8 +280,11 @@ function displayMealsByArea(mealsData) {
 }
 
 function showMealDetails(strArea) {
+  loader.classList.remove("d-none");
   console.log("Meal Area:", strArea);
   getMealsByArea(strArea);
+  loader.classList.remove("d-none");
+
 }
 
 // ?===========> ingredients =============>
@@ -299,7 +302,6 @@ async function getIngredients() {
   // console.log(area);
 }
 
-// strIngredient, strDescription
 function displayIngredients(ingredientsData) {
   let ingredientsHTML = "";
 
@@ -364,13 +366,13 @@ function displayIngredientsFilter(ingredientsData) {
   container.innerHTML = ingredientsFilterHTML;
 }
 
-
 function showIngredientsFilter(ingredientsName) {
   console.log("Ingredient Name:", ingredientsName);
+  loader.classList.remove("d-none");
   getIngredientsFilter(ingredientsName);
+  loader.classList.add("d-none");
+
 }
-
-
 
 // ? ===========> Search ==============>
 
@@ -435,7 +437,7 @@ async function getMealFirstLetter(mealFirstLetter) {
     displayMealsByFirstLetter(meals);
     loader.classList.add("d-none");
 
-    console.log(meals);
+    // console.log(meals);
   } catch (error) {
     console.error("Error fetching meals:", error);
   }
@@ -472,8 +474,6 @@ document.getElementById("mealFirst").addEventListener("input", function (e) {
   if (input.value.length > maxLength) {
     input.value = input.value.slice(0, maxLength);
   }
-
-
   getMealFirstLetter(e.target.value)
 });
 
