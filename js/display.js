@@ -163,7 +163,11 @@ function displayDetailsMeal(DetailsMealData) {
               </div>
             </li>
             <li>
-              <button type="button" class="btn btn-success">Success</button>
+              <button type="button" class="btn btn-success">
+                <a href="${
+                  DetailsMealData[i].strSource
+                }" target="_blank">Success</a>
+              </button>
               <button type="button" class="btn btn-danger">
                 <a href="${
                   DetailsMealData[i].strYoutube
@@ -415,13 +419,15 @@ document.getElementById("mealName").addEventListener("keyup", function (e) {
 });
 
 // Search by FirstLetter
-
 async function getMealFirstLetter(mealFirstLetter) {
   loader.classList.remove("d-none");
 
   try {
+    // If no letter is entered, default to the letter "L"
+    const letter = mealFirstLetter || 'a';
+
     const api = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/search.php?f=${mealFirstLetter}`
+      `https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`
     );
     const response = await api.json();
 
@@ -433,7 +439,6 @@ async function getMealFirstLetter(mealFirstLetter) {
   } catch (error) {
     console.error("Error fetching meals:", error);
   }
-
 }
 
 function displayMealsByFirstLetter(mealFirstLetterData) {
@@ -467,10 +472,13 @@ document.getElementById("mealFirst").addEventListener("input", function (e) {
   if (input.value.length > maxLength) {
     input.value = input.value.slice(0, maxLength);
   }
+
+
   getMealFirstLetter(e.target.value)
 });
 
-// first open website
+// ? ============>  first open website ==========>
+
 async function getMeal() {
   loader.classList.remove("d-none");
 

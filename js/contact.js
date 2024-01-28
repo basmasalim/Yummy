@@ -59,6 +59,12 @@ function setForm() {
     console.log("Passwords do not match");
   }
 }
+function clearData() {
+  for (let i = 2; i <= 7; i++) {
+    inputs[i].value = '';
+    inputs[i].classList.remove("is-valid", "is-invalid");
+  }
+}
 // !=============> Validation ===============>
 function validationName() {
     const regexStyle =
